@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 main {
@@ -10,39 +11,42 @@ main {
   justify-content: center;
   align-items: center;
   padding: 0 1rem;
+  background-color: bisque;
 }
 
 header {
-  background-color: red;
-  height: 5vh;
+  background-color: rgb(202, 171, 134);
   display: flex;
   gap: 2rem;
   justify-content: start;
   align-items: center;
+  padding: 1rem;
 }
 
 .logo img{
-  height: 5.4vh;
+  max-height: 5vh;
 }
 
 h1 {
   text-align: center;
+  padding: 1rem;
+  color: rgb(116, 82, 41);
 }
 
 .posts {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
-  background-color: gainsboro;
   border-radius: 12px;
   padding: 1rem;
+  background-color:rgb(202, 171, 134) ;
 }
 
 .post {
-  border: 2px solid black;
+  border: 2px solid transparent;
   padding: 1em;
   border-radius: 12px;
-  background-color: blanchedalmond;
+  background-color: rgb(211, 199, 181);
   text-align: center;
 }
 
@@ -52,6 +56,7 @@ img {
 
 .slogan{
   font-size: 1rem;
+  color: rgb(228, 217, 200);
 }
 
 @media (max-width: 640px) {
