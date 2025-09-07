@@ -1,3 +1,4 @@
+import '../../style/header.css'
 import { FaInstagram } from "react-icons/fa";
 
 const Header = () => {

@@ -1,0 +1,41 @@
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 1rem;
+    background-color: bisque;
+}
+
+h1 {
+    text-align: center;
+    padding: 1rem;
+    color: rgb(116, 82, 41);
+}
+
+.posts {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    border-radius: 12px;
+    padding: 1rem;
+    background-color: rgb(202, 171, 134);
+}
+
+.post {
+    border: 2px solid transparent;
+    padding: 1em;
+    border-radius: 12px;
+    background-color: rgb(211, 199, 181);
+    text-align: center;
+}
+
+img {
+    max-width: 100%;
+}
+
+@media (max-width: 640px) {
+    .posts {
+        grid-template-columns: 1fr;
+    }
+}

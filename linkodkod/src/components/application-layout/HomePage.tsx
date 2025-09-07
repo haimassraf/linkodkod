@@ -1,4 +1,5 @@
 import Posts from "./Posts"
+import '../../style/homePage.css'
 
 const HomePage = () => {
     return (
