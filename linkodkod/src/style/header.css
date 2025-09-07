@@ -1,0 +1,17 @@
+header {
+    background-color: rgb(202, 171, 134);
+    display: flex;
+    gap: 2rem;
+    justify-content: start;
+    align-items: center;
+    padding: 1rem;
+}
+
+.logo img {
+    max-height: 5vh;
+}
+
+.slogan {
+    font-size: 1rem;
+    color: rgb(228, 217, 200);
+}
