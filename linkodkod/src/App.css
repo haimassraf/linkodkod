@@ -4,12 +4,25 @@
   box-sizing: border-box;
 }
 
-#root {
+main {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
   padding: 0 1rem;
+}
+
+header {
+  background-color: red;
+  height: 5vh;
+  display: flex;
+  gap: 2rem;
+  justify-content: start;
+}
+
+h1 {
+  text-align: center;
 }
 
 .posts {
@@ -31,6 +44,10 @@
 
 img {
   max-width: 100%;
+}
+
+.logo img{
+  max-width: 2em;
 }
 
 @media (max-width: 640px) {
