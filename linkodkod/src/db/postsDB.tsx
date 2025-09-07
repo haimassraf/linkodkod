@@ -1,0 +1,35 @@
+import type { PostType } from "../Types/PostType"
+
+const postsDB: PostType[] = [
+    {
+        image: "https://img.freepik.com/free-photo/beautiful-tropical-beach-sea-ocean-with-white-cloud-blue-sky-copyspace_74190-8663.jpg?semt=ais_incoming&w=740&q=80",
+        description: "nice picture of the sea",
+        likes: 0,
+        poster: "Haim Assraf",
+        date: "07/09/25"
+    },
+    {
+        image: "https://img.freepik.com/free-photo/beautiful-tropical-beach-sea-ocean-with-white-cloud-blue-sky-copyspace_74190-8663.jpg?semt=ais_incoming&w=740&q=80",
+        description: "nice picture of the sea",
+        likes: 0,
+        poster: "Haim Assraf",
+        date: "07/09/25"
+    },
+    {
+        image: "https://img.freepik.com/free-photo/beautiful-tropical-beach-sea-ocean-with-white-cloud-blue-sky-copyspace_74190-8663.jpg?semt=ais_incoming&w=740&q=80",
+        description: "nice picture of the sea",
+        likes: 0,
+        poster: "Haim Assraf",
+        date: "07/09/25"
+    },
+    {
+        image: "https://img.freepik.com/free-photo/beautiful-tropical-beach-sea-ocean-with-white-cloud-blue-sky-copyspace_74190-8663.jpg?semt=ais_incoming&w=740&q=80",
+        description: "nice picture of the sea",
+        likes: 0,
+        poster: "Haim Assraf",
+        date: "07/09/25"
+    },
+
+]
+
+export default postsDB;

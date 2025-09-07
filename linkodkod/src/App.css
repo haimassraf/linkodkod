@@ -1,0 +1,40 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 0 1rem;
+}
+
+.posts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  background-color: gainsboro;
+  border-radius: 12px;
+  padding: 1rem;
+}
+
+.post {
+  border: 2px solid black;
+  padding: 1em;
+  border-radius: 12px;
+  background-color: blanchedalmond;
+  text-align: center;
+}
+
+img {
+  max-width: 100%;
+}
+
+@media (max-width: 640px) {
+  .posts {
+    grid-template-columns: 1fr;
+  }
+}
