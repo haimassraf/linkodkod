@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import Post from './Post'
-import type { PostType } from '../Types/PostType'
-import postsDB from '../db/postsDB.json'
+import type { PostType } from '../../Types/PostType'
+import postsDB from '../../db/postsDB.json'
 
 function Posts() {
 

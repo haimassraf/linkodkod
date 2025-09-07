@@ -1,4 +1,4 @@
-import type { PostType } from "../Types/PostType"
+import type { PostType } from "../../Types/PostType"
 
 const Post = ({ post }: { post: PostType }) => {
     return (

@@ -9,7 +9,6 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
   padding: 0 1rem;
 }
 
@@ -19,6 +18,11 @@ header {
   display: flex;
   gap: 2rem;
   justify-content: start;
+  align-items: center;
+}
+
+.logo img{
+  height: 5.4vh;
 }
 
 h1 {
@@ -44,10 +48,6 @@ h1 {
 
 img {
   max-width: 100%;
-}
-
-.logo img{
-  max-width: 2em;
 }
 
 @media (max-width: 640px) {
