@@ -1,6 +1,7 @@
 # linkodkod project
 
 ## My application is divided into two parts, CLIENT (REACT) and SERVER (EXPRESS)
+# important to say that my main branch is master - not main!
 Currently what the application does is simply display a HEADER - with a logo and text inside,
 and the HOME-PAGE itself which is to fetch all the posts from the server and simply show them to me by calling a component called POST for each post which receives the appropriate post as a prop and shows them to me.
 My server - EXPRESS, currently has one ROUTE of POSTS which contains two GET requests, one GET-ALL and the other GET-BY-ID.
