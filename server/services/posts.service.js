@@ -2,7 +2,7 @@ import { readFile, writeFile } from 'node:fs/promises'
 
 export async function getAll() {
     try {
-        const file = await readFile("../DB/posts.json", 'utf-8');
+        const file = await readFile("DB/posts.json", 'utf-8');
         if (!file) {
             return []
         }
@@ -17,7 +17,7 @@ export async function insertOne(body) {
     try {
         const allPosts = await getAll();
         allPosts.push(body)
-        await writeFile("../DB/posts.json", JSON.stringify(allPosts))
+        await writeFile("DB/posts.json", JSON.stringify(allPosts))
     } catch (error) {
         return error.message
     }

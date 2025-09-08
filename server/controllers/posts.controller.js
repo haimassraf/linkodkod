@@ -1,4 +1,4 @@
-import { getAll } from '../services/posts.service.js';
+import { getAll, insertOne } from '../services/posts.service.js';
 
 export async function getAllPosts(req, res) {
     const allPosts = await getAll()
@@ -15,5 +15,18 @@ export async function getPostById(req, res) {
 }
 
 export async function createPost(req, res) {
-
+    try {
+        const body = req.body;
+        if (!body.image || !body.description || !body.poster) {
+            throw new Error("new object has missing values");
+        }
+        const allPosts = await getAll();
+        const newId = allPosts[allPosts.length - 1].id + 1
+        body.id = newId;
+        body.date = new Date().toLocaleString()
+        insertOne(body)
+        res.send(body)
+    } catch (err) {
+        res.send(err.message)
+    }
 }
