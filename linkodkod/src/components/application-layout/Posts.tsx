@@ -24,7 +24,7 @@ function Posts() {
 
     return (
         <main>
-            <h1>Posts:</h1>
+            <h1>Posts</h1>
             <div className='posts'>
                 {message && <p className='failed'>{message}</p>}
                 {!message && allPosts.map((post, i) => (<Post post={post} key={i} />))}

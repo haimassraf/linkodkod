@@ -14,7 +14,6 @@ const PostPage = () => {
             setLoading(true)
             const wantedPost: PostType = await makeRequest(`/posts/${id}`, 'GET');
             setLoading(false)
-            console.log(wantedPost)
             if (!wantedPost.id) {
                 setMessage("Faild to fetch post, please try again later")
                 return
