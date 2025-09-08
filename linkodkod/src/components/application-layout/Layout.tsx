@@ -1,5 +1,5 @@
 import Posts from "./Posts"
-import '../../style/homePage.css'
+import '../../style/layout.css'
 
 const Layout = () => {
     return (

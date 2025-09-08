@@ -21,6 +21,7 @@ h1 {
     padding: 1rem;
     background-color: rgb(202, 171, 134);
     margin: 1rem;
+    
 }
 
 .post {
@@ -29,10 +30,37 @@ h1 {
     border-radius: 12px;
     background-color: rgb(211, 199, 181);
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
 }
 
 img {
     max-width: 100%;
+    border-radius: 12px;
+}
+
+.description{
+    align-self: center;
+}
+
+.poster{
+    font-size: small;
+}
+
+.addedTime{
+    font-size: x-small;
+    margin-left: 1rem;
+}
+
+.loading{
+    text-align: center;
+    grid-column: span 3;
+}
+
+.failed{
+    color: rgb(192, 42, 42);
 }
 
 @media screen and (max-width: 720px) {
