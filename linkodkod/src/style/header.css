@@ -2,7 +2,7 @@ header {
     background-color: rgb(202, 171, 134);
     display: flex;
     gap: 2rem;
-    justify-content: start;
+    justify-content: space-around;
     align-items: center;
     padding: 1rem;
 }
@@ -14,4 +14,13 @@ header {
 .slogan {
     font-size: 1rem;
     color: rgb(228, 217, 200);
+}
+
+.btn {
+    text-decoration: none;
+    border: 2px solid black;
+    border-radius: 12px;
+    background-color: rgb(228, 217, 200);
+    padding: 0.5rem;
+    color: rgb(202, 171, 134);
 }

@@ -21,11 +21,10 @@ h1 {
     padding: 1rem;
     background-color: rgb(202, 171, 134);
     margin: 1rem;
-    
+
 }
 
 .post {
-    border: 2px solid transparent;
     padding: 1em;
     border-radius: 12px;
     background-color: rgb(211, 199, 181);
@@ -34,6 +33,12 @@ h1 {
     flex-direction: column;
     justify-content: center;
     align-items: start;
+    cursor: pointer;
+}
+
+.postPage {
+    align-items: center;
+    cursor: auto;
 }
 
 img {
@@ -41,25 +46,25 @@ img {
     border-radius: 12px;
 }
 
-.description{
+.description {
     align-self: center;
 }
 
-.poster{
+.poster {
     font-size: small;
 }
 
-.addedTime{
+.addedTime {
     font-size: x-small;
     margin-left: 1rem;
 }
 
-.loading{
+.loading {
     text-align: center;
     grid-column: span 3;
 }
 
-.failed{
+.failed {
     color: rgb(192, 42, 42);
 }
 
