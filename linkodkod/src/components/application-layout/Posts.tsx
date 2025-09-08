@@ -12,11 +12,11 @@ function Posts() {
     useEffect(() => {
         const fetchPosts = async () => {
             setIsLoading(true)
-            const posts = await makeRequest('/posts', 'GET');
-            if (!posts[0].id){
-                setMessage("Faild to fetch posts, please try again later")
+            const res = await makeRequest('/posts', 'GET');
+            if (!res[0].id) {
+                setMessage(res)
             }
-            setAllPosts(posts)
+            setAllPosts(res)
             setIsLoading(false)
         };
         fetchPosts();
