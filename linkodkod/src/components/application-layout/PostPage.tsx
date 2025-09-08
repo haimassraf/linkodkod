@@ -14,7 +14,6 @@ const PostPage = () => {
             setLoading(true)
             const wantedPost: PostType = await makeRequest(`/posts/${id}`, 'GET');
             setLoading(false)
-            console.log(wantedPost)
             if (!wantedPost.id) {
                 setMessage("Faild to fetch post, please try again later")
                 return
@@ -26,7 +25,7 @@ const PostPage = () => {
     return (
         <>
             <div className="postPage post">
-            {loading && <p className="loading">Loading</p>}
+            {loading && <p className="loading">Loading...</p>}
             {message && <p className="failed">{message}</p>}
                 <img src={post?.image} alt="" />
                 <h3 className="description">{post?.description}</h3>
