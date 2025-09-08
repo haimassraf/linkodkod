@@ -26,12 +26,16 @@ export async function createPost(req, res) {
         }
         const allPosts = await getAll();
         if (allPosts.length !== 0) {
-            const newId = allPosts[allPosts.length - 1].id + 1
+            const newId = allPosts[0].id + 1
             body.id = newId;
         }
         else {
             body.id = 1;
         }
+        console.log("image: ", body.image)
+        const imageName = body.image.split("\\");
+        const image = imageName[imageName.length - 1]
+        body.image = `http://localhost:3000/${image}`
         body.likes = 0;
         body.date = new Date().toLocaleString()
         insertOne(body)
