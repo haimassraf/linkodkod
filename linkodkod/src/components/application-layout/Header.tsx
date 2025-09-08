@@ -11,6 +11,7 @@ const Header = () => {
         </i>
         <p className="slogan">The First Kosher Instegram! <span><FaInstagram /></span></p>
         <Link className='btn' to={'posts'}>All posts</Link>
+        <Link className='btn' to={'add-new-post'}>Add New Post</Link>
       </header>
       <Outlet />
     </>
