@@ -16,7 +16,7 @@ export async function getAll() {
 export async function insertOne(body) {
     try {
         const allPosts = await getAll();
-        allPosts.push(body)
+        allPosts.unshift(body)
         await writeFile("DB/posts.json", JSON.stringify(allPosts))
     } catch (error) {
         return error.message

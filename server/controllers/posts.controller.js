@@ -28,6 +28,7 @@ export async function createPost(req, res) {
         else {
             body.id = 1;
         }
+        body.likes = 0;
         body.date = new Date().toLocaleString()
         insertOne(body)
         res.send(body)
