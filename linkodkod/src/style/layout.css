@@ -39,6 +39,7 @@ h1 {
 .postPage {
     align-items: center;
     cursor: auto;
+    margin: 1rem;
 }
 
 img {
