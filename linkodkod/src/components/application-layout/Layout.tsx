@@ -1,10 +1,10 @@
 import Posts from "./Posts"
 import '../../style/homePage.css'
 
-const HomePage = () => {
+const Layout = () => {
     return (
         <Posts />
     )
 }
 
-export default HomePage
+export default Layout

@@ -1,6 +1,6 @@
 import './App.css'
 import Header from './components/application-layout/Header'
-import HomePage from './components/application-layout/HomePage'
+import Layout from './components/application-layout/Layout'
 
 function App() {
 
@@ -8,7 +8,7 @@ function App() {
   return (
     <>
       <Header />
-      <HomePage/>
+      <Layout/>
     </>
   )
 }
