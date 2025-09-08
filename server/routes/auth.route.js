@@ -4,7 +4,7 @@ import * as uc from '../controllers/auth.controller.js'
 const authRouter = express.Router();
 
 authRouter.post('/login', uc.login)
-authRouter.post('/sighn-up', uc.sighnUp)
+authRouter.post('/signup', uc.signup)
 authRouter.get('/logout', uc.logout)
 
 export default authRouter

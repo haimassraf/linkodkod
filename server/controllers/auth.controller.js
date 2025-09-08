@@ -39,7 +39,7 @@ export async function login(req, res) {
     catch (err) { res.status(500).send(err.message) };
 }
 
-export async function sighnUp(req, res) {
+export async function signup(req, res) {
     try {
         res.clearCookie("token");
         const { name, password } = req.body;
