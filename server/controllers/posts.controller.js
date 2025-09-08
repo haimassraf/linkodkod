@@ -6,14 +6,14 @@ export async function getAllPosts(req, res) {
 }
 
 export async function getPostById(req, res) {
-    try {
-        const id = +req.params.id;
-        if (!id) throw new Error(`You mest enter an Realy ID Number`)
-        const allPosts = await getAll()
-        const wantedPost = allPosts.filter((post) => post.id === id)
-        if (!wantedPost.length) throw new Error(`Post With ID '${id}' Not Found`)
-        res.send(wantedPost[0])
-    } catch (err) {
-        res.send(err.message)
-    }
+    const id = +req.params.id;
+    if (!id) throw new Error(`You mest enter an Realy ID Number`)
+    const allPosts = await getAll()
+    const wantedPost = allPosts.filter((post) => post.id === id)
+    if (!wantedPost.length) throw new Error(`Post With ID '${id}' Not Found`)
+    res.send(wantedPost[0])
+}
+
+export async function createPost(req, res) {
+
 }

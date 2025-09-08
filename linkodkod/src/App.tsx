@@ -7,7 +7,6 @@ import HomePage from './components/application-layout/HomePage'
 
 function App() {
 
-
   return (
     <>
       <Routes>
