@@ -8,6 +8,7 @@ const PORT = process.env.PORT;
 
 app.use(express.json())
 app.use(cors('*'))
+app.use(express.static('images'))
 app.use('/posts', postsRouter)
 
 app.listen(PORT, () => console.log(`Server Listening on 'http://localhost:${PORT}'`))

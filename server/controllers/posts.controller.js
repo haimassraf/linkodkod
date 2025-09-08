@@ -21,8 +21,13 @@ export async function createPost(req, res) {
             throw new Error("new object has missing values");
         }
         const allPosts = await getAll();
-        const newId = allPosts[allPosts.length - 1].id + 1
-        body.id = newId;
+        if (allPosts.length !== 0) {
+            const newId = allPosts[allPosts.length - 1].id + 1
+            body.id = newId;
+        }
+        else {
+            body.id = 1;
+        }
         body.date = new Date().toLocaleString()
         insertOne(body)
         res.send(body)
