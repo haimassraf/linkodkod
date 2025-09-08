@@ -22,3 +22,11 @@ export async function insertOne(body) {
         return error.message
     }
 }
+
+export async function insertAll(data) {
+    try {
+        await writeFile("DB/posts.json", JSON.stringify(data))
+    } catch (error) {
+        return error.message
+    }
+}

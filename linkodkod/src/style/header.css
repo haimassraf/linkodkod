@@ -18,7 +18,7 @@ header {
 
 .btn {
     text-decoration: none;
-    border: 2px solid black;
+    border: 2px solid rgb(154, 147, 135);
     border-radius: 12px;
     background-color: rgb(228, 217, 200);
     padding: 0.5rem;
