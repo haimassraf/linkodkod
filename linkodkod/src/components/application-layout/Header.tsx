@@ -1,6 +1,6 @@
 import '../../style/header.css'
 import { FaInstagram } from "react-icons/fa";
-import { Link, Outlet, useNavigate } from "react-router"
+import { Link, useNavigate } from "react-router"
 import makeRequest from '../../utils/makeRequest';
 
 const Header = () => {
