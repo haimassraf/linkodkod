@@ -23,8 +23,7 @@ const AddNewPost = () => {
             const res = await makeRequest('/posts', 'POST', body, true);
             setLoadin(false)
             if (res.id) {
-                alert('Post Added Successfully');
-                navigate('/index/posts')
+                navigate('/layout/posts')
             } else {
                 setMessage(res);
             }

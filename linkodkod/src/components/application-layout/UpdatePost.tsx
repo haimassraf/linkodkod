@@ -40,8 +40,7 @@ const UpdatePost = () => {
             const res = await makeRequest(`/posts/${id}`, 'PUT', body, true);
             setLoading(false)
             if (res.id) {
-                alert('Post Added Successfully');
-                navigate('/index/posts')
+                navigate('/layout/posts')
             } else {
                 setMessage(res);
             }
