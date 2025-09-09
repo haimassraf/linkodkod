@@ -21,11 +21,7 @@ textarea {
     padding-left: 1rem;
 }
 
-button {
-    border: 2px solid rgb(154, 147, 135);
-    border-radius: 12px;
-    background-color: rgb(228, 217, 200);
-    padding: 0.5rem;
-    color: rgb(202, 171, 134);
-    cursor: pointer;
+
+.logout:hover {
+    color: brown;
 }

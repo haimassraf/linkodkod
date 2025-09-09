@@ -32,7 +32,7 @@ export async function login(req, res) {
         user = user[0]
         const matchPassword = await bcrypt.compare(password, user.password);
         if (!matchPassword) return res.status(403).send("Wrong userName or password");
-        const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET_KEY, { expiresIn: '5m' });
+        const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET_KEY, { expiresIn: '30m' });
         res.cookie("token", token, { httpOnly: true, sameSite: true });
         res.json({ user, token });
     }
@@ -57,7 +57,7 @@ export async function signup(req, res) {
         const isNameExist = allUsers.filter((user) => (user.name === name))
         if (isNameExist.length > 0) return res.status(403).send("The UserName already exist")
         await ser.insertOneUser(newUser);
-        const token = jwt.sign({ id: newUser.id }, process.env.JWT_SECRET_KEY, { expiresIn: '5m' });
+        const token = jwt.sign({ id: newUser.id }, process.env.JWT_SECRET_KEY, { expiresIn: '30m' });
         res.cookie("token", token, { httpOnly: true, sameSite: true });
         res.send({ newUser, token });
     } catch (err) { res.status(500).send(err.message) };

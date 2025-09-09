@@ -57,7 +57,7 @@ const Login = () => {
                 </label>
 
                 <button type="submit">Login</button>
-                <Link to="/signup">New? Please signup first</Link>
+                <p>New? Please <Link to="/signup">signup</Link> first</p>
                 {loading && <p className="loading">Loading...</p>}
                 {message && <p className="failed">{message}</p>}
             </form>
