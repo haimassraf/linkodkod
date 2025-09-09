@@ -5,6 +5,30 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
-body{
+body {
   background-color: wheat;
+}
+
+button,
+.btn {
+  border: 2px solid rgb(154, 147, 135);
+  border-radius: 12px;
+  background-color: rgb(228, 217, 200);
+  padding: 0.5rem;
+  color: rgb(202, 171, 134);
+  cursor: pointer;
+  transition: color 0.5s, background-color 0.5s, font-size 0.5s;
+  font-size: small;
+}
+
+button:hover,
+.btn:hover {
+  font-size: medium;
+  color: rgb(228, 217, 200);
+  background-color: rgb(202, 171, 134);
+  border: 2px solid rgb(94, 81, 66);
+}
+
+.btn:hover {
+  font-size: small;
 }

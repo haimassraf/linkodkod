@@ -7,6 +7,7 @@ import HomePage from './components/application-layout/HomePage'
 import AddNewPost from './components/application-layout/AddNewPost'
 import Login from './components/authPages/login'
 import Signup from './components/authPages/signup'
+import UpdatePost from './components/application-layout/UpdatePost'
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
           <Route path='posts/:id' element={<PostPage />} />
           <Route path='posts' element={<Layout />} />
           <Route path='add-new-post' element={<AddNewPost />} />
+          <Route path='update-post/:id' element={<UpdatePost/>}/>
         </Route>
       </Routes>
     </>

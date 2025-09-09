@@ -7,7 +7,8 @@ main {
     background-color: bisque;
 }
 
-h1, h2 {
+h1,
+h2 {
     text-align: center;
     padding: 1rem;
     color: rgb(116, 82, 41);
@@ -62,20 +63,25 @@ img {
     margin-left: 1rem;
 }
 
-.loading, .failed {
+.loading,
+.failed {
     text-align: center;
     grid-column: span 3;
 }
 
-.options{
+.options {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 2rem;
 }
 
-.delete{
+.delete {
     background-color: brown;
+}
+
+.delete:hover {
+    color: brown;
 }
 
 .failed {

@@ -7,7 +7,7 @@ const Signup = () => {
   const [password, setPassword] = useState<string>("");
   const [matchPassword, setMatchPassword] = useState<string>("");
   const [message, setMessage] = useState<string>("");
-  const [loadin, setLoadin] = useState<boolean>(false)
+  const [loading, setLoadin] = useState<boolean>(false)
 
   const navigate = useNavigate();
 
@@ -75,9 +75,9 @@ const Signup = () => {
         </label>
 
         <button type="submit">Signup</button>
-        <Link to="/">Already have an account? Please login</Link>
-        {loadin && <p className="loading">Loading...</p>}
-        {message && <p className="failed">{message}</p>}
+        <p>Already have an account? Please <Link to="/">login</Link></p>
+        {loading && <p className="loading">Loading...</p>}
+        {message && !loading && <p className="failed">{message}</p>}
       </form>
     </>
   );

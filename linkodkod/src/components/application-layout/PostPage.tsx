@@ -21,6 +21,11 @@ const PostPage = () => {
         alert(`post with id '${res.id}' deleted succussfully`)
         navigate('/index/posts')
     }
+
+    async function updateById() {
+        navigate(`/index/update-post/${id}`)
+    }
+
     useEffect(() => {
         async function fetchPost() {
             setLoading(true)
@@ -44,7 +49,7 @@ const PostPage = () => {
                 <p className="addedTime">{post?.date}</p>
             </div>
             <div className="options">
-                <button>Update Post</button>
+                <button onClick={updateById}>Update Post</button>
                 <button className="delete" onClick={deleteById}>Delete Post</button>
             </div>
             {loading && <p className="loading">Loading...</p>}

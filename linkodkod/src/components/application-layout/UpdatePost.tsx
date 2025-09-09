@@ -1,16 +1,33 @@
-import { useState, type FormEvent } from "react";
-import { useNavigate } from "react-router";
+import { useEffect, useState, type FormEvent } from "react";
+import { useNavigate, useParams } from "react-router";
 import makeRequest from "../../utils/makeRequest";
 import '../../style/addNewPost.css'
+import type { PostType } from "../../Types/PostType";
 
-const AddNewPost = () => {
+const UpdatePost = () => {
+    const { id } = useParams<{ id: string }>();
     const [poster, setPoster] = useState<string>("");
     const [description, setDescription] = useState<string>("");
     const [image, setImage] = useState<string>("");
     const [message, setMessage] = useState<string>("");
-    const [loading, setLoadin] = useState<boolean>(false)
+    const [loading, setLoading] = useState<boolean>(false)
+    const [post, setPost] = useState<PostType>()
 
     const navigate = useNavigate();
+
+    useEffect(() => {
+        async function fetchPost() {
+            setLoading(true)
+            const res = await makeRequest(`/posts/${id}`, 'GET', null, true);
+            setLoading(false)
+            if (!res.id) {
+                setMessage(res)
+                return
+            }
+            setPost(res)
+        }
+        fetchPost()
+    }, [])
 
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -20,9 +37,9 @@ const AddNewPost = () => {
                 description,
                 image
             }
-            setLoadin(true)
-            const res = await makeRequest('/posts', 'POST', body, true);
-            setLoadin(false)
+            setLoading(true)
+            const res = await makeRequest(`/posts/${id}`, 'PUT', body, true);
+            setLoading(false)
             if (res.id) {
                 alert('Post Added Successfully');
                 navigate('/index/posts')
@@ -34,7 +51,7 @@ const AddNewPost = () => {
 
     return (
         <>
-            <h1>Add New Post</h1>
+            <h1>Update Post</h1>
             <form onSubmit={handleSubmit}>
                 <label htmlFor="poster">
                     Poster
@@ -43,7 +60,7 @@ const AddNewPost = () => {
                         required
                         type="text"
                         placeholder="poster"
-                        value={poster}
+                        defaultValue={post?.poster}
                         onChange={(e) => setPoster(e.target.value)}
                     />
                 </label>
@@ -54,7 +71,7 @@ const AddNewPost = () => {
                         id="description"
                         required
                         placeholder="description"
-                        value={description}
+                        defaultValue={post?.description}
                         onChange={(e) => setDescription(e.target.value)}
                     />
                 </label>
@@ -63,7 +80,6 @@ const AddNewPost = () => {
                     Image
                     <input
                         id="image"
-                        required
                         type="file"
                         placeholder="image URL"
                         value={image}
@@ -71,12 +87,12 @@ const AddNewPost = () => {
                     />
                 </label>
 
-                <button type="submit">add new post</button>
+                <button type="submit">Update Post</button>
                 {loading && <p className="loading">Loading...</p>}
-                {message &&!loading && <p className="failed">{message}</p>}
+                {message && !loading && <p className="failed">{message}</p>}
             </form>
         </>
     );
 };
 
-export default AddNewPost;
+export default UpdatePost;
