@@ -22,8 +22,7 @@ export default async function makeRequest(url: string, method: string = 'GET', b
 
         const contentType = res.headers.get('Content-Type');
         return contentType && contentType.includes('application/json')
-            ? await res.json()
-            : await res.text();
+            ? await res.json() : await res.text();
 
     } catch (err: any) {
         return (err.message);

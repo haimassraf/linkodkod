@@ -12,7 +12,7 @@ function Posts() {
     useEffect(() => {
         const fetchPosts = async () => {
             setIsLoading(true)
-            const res = await makeRequest('/posts', 'GET');
+            const res = await makeRequest('/posts', 'GET', null, true);
             if (!res[0].id) {
                 setMessage(res)
             }

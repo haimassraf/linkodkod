@@ -17,7 +17,7 @@ const Login = () => {
                 password
             }
             setLoading(true);
-            const res = await makeRequest('/auth/login', 'POST', body);
+            const res = await makeRequest('/auth/login', 'POST', body, true);
             setLoading(false)
             if (res.token) {
                 alert('Logged in successfully');

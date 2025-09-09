@@ -21,11 +21,11 @@ const AddNewPost = () => {
                 image
             }
             setLoadin(true)
-            const res = await makeRequest('/posts', 'POST', body);
+            const res = await makeRequest('/posts', 'POST', body, true);
             setLoadin(false)
             if (res.id) {
                 alert('Post Added Successfully');
-                navigate('/posts')
+                navigate('/index/posts')
             } else {
                 setMessage(res);
             }

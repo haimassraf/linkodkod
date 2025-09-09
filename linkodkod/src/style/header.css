@@ -2,9 +2,18 @@ header {
     background-color: rgb(202, 171, 134);
     display: flex;
     gap: 2rem;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-    padding: 1rem;
+    padding: 1rem 2rem;
+}
+
+.buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.logout {
+    background-color: brown;
 }
 
 .logo img {
@@ -16,7 +25,8 @@ header {
     color: rgb(228, 217, 200);
 }
 
-.btn {
+.btn,
+button {
     text-decoration: none;
     border: 2px solid rgb(154, 147, 135);
     border-radius: 12px;
