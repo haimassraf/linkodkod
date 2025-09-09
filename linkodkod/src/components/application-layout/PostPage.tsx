@@ -41,7 +41,7 @@ const PostPage = () => {
     }, [])
     return (
         <>
-            <div className="postPage post">
+            <div className="postPage card">
                 <img src={post?.image} alt="" />
                 <h3 className="description">{post?.description}</h3>
                 <span className="likes">👍{post?.likes}</span>

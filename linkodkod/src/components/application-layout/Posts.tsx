@@ -26,7 +26,7 @@ function Posts() {
         <>
             <h1>Posts</h1>
             <div className='posts'>
-                {allPosts.map((post, i) => (<Card post={post} key={i} />))}
+                {!message && allPosts.map((post, i) => (<Card post={post} key={i} />))}
                 {loading && <p className='loading'>Loading...</p>}
                 {message && !loading && <p className='failed'>{message}</p>}
             </div>

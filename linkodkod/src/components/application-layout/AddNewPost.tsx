@@ -28,9 +28,10 @@ const AddNewPost = () => {
             } else {
                 setMessage(res);
             }
-        } catch (err: any) { setMessage(err.message) }
-    };
-
+        } catch (err: any) {
+            setMessage(err.message)
+        };
+    }
     return (
         <>
             <h1>Add New Post</h1>
@@ -72,7 +73,7 @@ const AddNewPost = () => {
 
                 <button type="submit">add new post</button>
                 {loading && <p className="loading">Loading...</p>}
-                {message &&!loading && <p className="failed">{message}</p>}
+                {message && !loading && <p className="failed">{message}</p>}
             </form>
         </>
     );

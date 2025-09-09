@@ -6,8 +6,7 @@ import makeRequest from '../../utils/makeRequest';
 const Header = () => {
   const navigate = useNavigate();
   async function logout() {
-    const res = await makeRequest('/auth/logout', 'GET', null, true);
-    alert(res)
+    await makeRequest('/auth/logout', 'GET', null, true);
     navigate('/')
   }
 

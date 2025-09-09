@@ -20,7 +20,6 @@ const Login = () => {
             const res = await makeRequest('/auth/login', 'POST', body, true);
             setLoading(false)
             if (res.token) {
-                alert('Logged in successfully');
                 navigate("layout");
             } else {
                 setMessage(res);
@@ -33,7 +32,7 @@ const Login = () => {
             <h1>Login</h1>
             <form onSubmit={handleSubmit}>
                 <label htmlFor="name">
-                    User Name
+                    name
                     <input
                         id="name"
                         required
@@ -59,7 +58,7 @@ const Login = () => {
                 <button type="submit">Login</button>
                 <p>New? Please <Link to="/signup">signup</Link> first</p>
                 {loading && <p className="loading">Loading...</p>}
-                {message && <p className="failed">{message}</p>}
+                {message && !loading && <p className="failed">{message}</p>}
             </form>
         </>
     );

@@ -1,20 +1,24 @@
 import { getAll, insertOne, insertAll } from '../services/posts.service.js';
 
 export async function getAllPosts(req, res) {
-    const allPosts = await getAll()
-    res.send(allPosts);
+    try {
+        const allPosts = await getAll()
+        res.send(allPosts);
+    } catch (err) {
+        res.status(500).send(err.message)
+    }
 }
 
 export async function getPostById(req, res) {
     try {
         const id = +req.params.id;
-        if (!id) throw new Error(`You mest enter an Realy ID Number`)
+        if (!id) throw new Error(`You must enter a realy ID number`)
         const allPosts = await getAll()
         const wantedPost = allPosts.filter((post) => post.id === id)
         if (!wantedPost.length) throw new Error(`Post With ID '${id}' Not Found`)
         res.send(wantedPost[0])
     } catch (err) {
-        res.send(err.message)
+        res.status(500).send(err.message)
     }
 }
 
@@ -32,7 +36,6 @@ export async function createPost(req, res) {
         else {
             body.id = 1;
         }
-        console.log("image: ", body.image)
         const imageName = body.image.split("\\");
         const image = imageName[imageName.length - 1]
         body.image = `http://localhost:3000/${image}`
@@ -41,7 +44,7 @@ export async function createPost(req, res) {
         insertOne(body)
         res.send(body)
     } catch (err) {
-        res.send(err.message)
+        res.status(500).send(err.message)
     }
 }
 
@@ -49,7 +52,7 @@ export async function updateById(req, res) {
     try {
         const body = req.body;
         const id = +req.params.id;
-        if (!id) throw new Error(`You mest enter an Realy ID Number`)
+        if (!id) throw new Error(`You must enter a realy ID number`)
         const allPosts = await getAll()
         const iToUpdate = allPosts.findIndex((post) => post.id === id)
         if (iToUpdate === -1) throw new Error(`Post With ID '${id}' Not Found`)
@@ -59,14 +62,14 @@ export async function updateById(req, res) {
         await insertAll(allPosts);
         res.send(allPosts[iToUpdate])
     } catch (error) {
-        res.send(error.message)
+        res.status(500).send(error.message)
     }
 }
 
 export async function deleteById(req, res) {
     try {
         const id = +req.params.id;
-        if (!id) throw new Error(`You mest enter an Realy ID Number`)
+        if (!id) throw new Error(`You must enter a realy ID number`)
         const allPosts = await getAll()
         const iToUpdate = allPosts.findIndex((post) => post.id === id)
         if (iToUpdate === -1) throw new Error(`Post With ID '${id}' Not Found`)
@@ -75,6 +78,6 @@ export async function deleteById(req, res) {
         await insertAll(allPosts);
         res.send(deletedUser);
     } catch (error) {
-        res.send(error.message)
+        res.status(500).send(error.message)
     }
 }

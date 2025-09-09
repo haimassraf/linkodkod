@@ -26,7 +26,6 @@ const Signup = () => {
       const res = await makeRequest('/auth/signup', 'POST', body, true);
       setLoadin(false)
       if (res.token) {
-        alert('Sign up successfully');
         navigate('/layout')
       } else {
         setMessage(res);

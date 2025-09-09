@@ -71,6 +71,7 @@ img {
 
 .failed {
     color: rgb(192, 42, 42);
+    font-size: small;
 }
 
 .options {
@@ -97,9 +98,15 @@ form {
     text-align: center;
     background-color: rgb(202, 171, 134);
     margin: 4rem;
-    padding: 1rem;
+    padding: 3rem;
     border-radius: 12px;
     gap: 1rem;
+}
+
+label{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
 }
 
 input,
