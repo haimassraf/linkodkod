@@ -67,6 +67,17 @@ img {
     grid-column: span 3;
 }
 
+.options{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.delete{
+    background-color: brown;
+}
+
 .failed {
     color: rgb(192, 42, 42);
 }
