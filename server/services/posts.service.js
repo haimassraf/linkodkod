@@ -18,6 +18,7 @@ export async function insertOne(body) {
         const allPosts = await getAll();
         allPosts.unshift(body)
         await writeFile("DB/posts.json", JSON.stringify(allPosts))
+        return allPosts
     } catch (error) {
         return error.message
     }
@@ -26,6 +27,7 @@ export async function insertOne(body) {
 export async function insertAll(data) {
     try {
         await writeFile("DB/posts.json", JSON.stringify(data))
+        return data
     } catch (error) {
         return error.message
     }
