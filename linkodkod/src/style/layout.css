@@ -62,7 +62,7 @@ img {
     margin-left: 1rem;
 }
 
-.loading {
+.loading, .failed {
     text-align: center;
     grid-column: span 3;
 }

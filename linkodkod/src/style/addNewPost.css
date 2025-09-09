@@ -5,7 +5,7 @@ form {
     justify-content: center;
     text-align: center;
     background-color: rgb(202, 171, 134);
-    margin: 2rem;
+    margin: 4rem;
     padding: 1rem;
     border-radius: 12px;
     gap: 1rem;
@@ -14,7 +14,7 @@ form {
 input,
 textarea {
     display: block;
-    width: 20rem;
+    width: 17rem;
     height: 5vh;
     border: transparent;
     border-radius: 12px;

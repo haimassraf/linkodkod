@@ -12,13 +12,13 @@ const PostPage = () => {
     useEffect(() => {
         async function fetchPost() {
             setLoading(true)
-            const wantedPost: PostType = await makeRequest(`/posts/${id}`, 'GET');
+            const res = await makeRequest(`/posts/${id}`, 'GET', null, true);
             setLoading(false)
-            if (!wantedPost.id) {
-                setMessage("Faild to fetch post, please try again later")
+            if (!res.id) {
+                setMessage(res)
                 return
             }
-            setPost(wantedPost)
+            setPost(res)
         }
         fetchPost()
     }, [])
