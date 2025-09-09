@@ -23,7 +23,7 @@ const PostPage = () => {
     }
 
     async function updateById() {
-        navigate(`/index/update-post/${id}`)
+        navigate(`/layout/update-post/${id}`)
     }
 
     useEffect(() => {
