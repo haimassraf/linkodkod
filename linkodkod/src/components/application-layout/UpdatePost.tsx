@@ -1,7 +1,6 @@
 import { useEffect, useState, type FormEvent } from "react";
 import { useNavigate, useParams } from "react-router";
 import makeRequest from "../../utils/makeRequest";
-import '../../style/addNewPost.css'
 import type { PostType } from "../../Types/PostType";
 
 const UpdatePost = () => {

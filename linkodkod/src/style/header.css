@@ -5,6 +5,9 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
+    position: fixed;
+    width: 100%;
+    height: 4rem;
 }
 
 .buttons {
@@ -23,14 +26,4 @@ header {
 .slogan {
     font-size: 1rem;
     color: rgb(228, 217, 200);
-}
-
-.btn,
-button {
-    text-decoration: none;
-    border: 2px solid rgb(154, 147, 135);
-    border-radius: 12px;
-    background-color: rgb(228, 217, 200);
-    padding: 0.5rem;
-    color: rgb(202, 171, 134);
 }

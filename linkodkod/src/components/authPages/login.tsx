@@ -21,7 +21,7 @@ const Login = () => {
             setLoading(false)
             if (res.token) {
                 alert('Logged in successfully');
-                navigate("index");
+                navigate("layout");
             } else {
                 setMessage(res);
             }

@@ -27,7 +27,7 @@ const Signup = () => {
       setLoadin(false)
       if (res.token) {
         alert('Sign up successfully');
-        navigate('/index')
+        navigate('/layout')
       } else {
         setMessage(res);
       }

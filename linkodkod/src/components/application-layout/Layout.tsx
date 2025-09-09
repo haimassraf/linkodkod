@@ -1,9 +1,17 @@
-import Posts from "./Posts"
-import '../../style/layout.css'
+import { Outlet } from "react-router"
+import '../../style/main.css'
+import Header from "./Header"
 
 const Layout = () => {
     return (
-        <Posts />
+        <>
+            <header>
+                <Header />
+            </header>
+            <main>
+                <Outlet />
+            </main>
+        </>
     )
 }
 

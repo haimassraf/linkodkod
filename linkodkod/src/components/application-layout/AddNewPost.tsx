@@ -1,7 +1,6 @@
 import { useState, type FormEvent } from "react";
 import { useNavigate } from "react-router";
 import makeRequest from "../../utils/makeRequest";
-import '../../style/addNewPost.css'
 
 const AddNewPost = () => {
     const [poster, setPoster] = useState<string>("");

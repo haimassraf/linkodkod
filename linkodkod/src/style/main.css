@@ -5,6 +5,7 @@ main {
     align-items: center;
     padding: 0 1rem;
     background-color: bisque;
+    padding-top: 4rem;
 }
 
 h1,
@@ -22,10 +23,9 @@ h2 {
     padding: 1rem;
     background-color: rgb(202, 171, 134);
     margin: 1rem;
-
 }
 
-.post {
+.card {
     padding: 1em;
     border-radius: 12px;
     background-color: rgb(211, 199, 181);
@@ -69,11 +69,16 @@ img {
     grid-column: span 3;
 }
 
+.failed {
+    color: rgb(192, 42, 42);
+}
+
 .options {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 2rem;
+    padding: 1rem;
 }
 
 .delete {
@@ -84,8 +89,31 @@ img {
     color: brown;
 }
 
-.failed {
-    color: rgb(192, 42, 42);
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: rgb(202, 171, 134);
+    margin: 4rem;
+    padding: 1rem;
+    border-radius: 12px;
+    gap: 1rem;
+}
+
+input,
+textarea {
+    display: block;
+    width: 17rem;
+    height: 5vh;
+    border: transparent;
+    border-radius: 12px;
+    padding-left: 1rem;
+}
+
+.logout:hover {
+    color: brown;
 }
 
 @media screen and (max-width: 720px) {
