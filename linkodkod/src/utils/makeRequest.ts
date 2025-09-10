@@ -1,11 +1,12 @@
 export default async function makeRequest(url: string, method: string = 'GET', body: any = null, isFile: boolean = false) {
+    const URLSERVER = "http://localhost:3000"
     try {
         let res
         if (isFile) {
 
             await new Promise(resolve => setTimeout(resolve, 500))
             
-            res = await fetch(`http://localhost:3000${url}`, {
+            res = await fetch(`${URLSERVER}${url}`, {
                 method,
                 body,
                 credentials: 'include'
@@ -21,7 +22,7 @@ export default async function makeRequest(url: string, method: string = 'GET', b
 
             await new Promise(resolve => setTimeout(resolve, 500))
 
-            res = await fetch(`http://localhost:3000${url}`, options);
+            res = await fetch(`${URLSERVER}${url}`, options);
         }
 
         if (res.status === 401) {
