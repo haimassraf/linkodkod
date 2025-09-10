@@ -17,7 +17,7 @@ const Login = () => {
                 password
             }
             setLoading(true);
-            const res = await makeRequest('/auth/login', 'POST', body, true);
+            const res = await makeRequest('/auth/login', 'POST', body);
             setLoading(false)
             if (res.token) {
                 navigate("layout");

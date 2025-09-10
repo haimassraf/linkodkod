@@ -1,4 +1,6 @@
 import { getAll, insertOne, insertAll } from '../services/posts.service.js';
+import path from 'path'
+
 
 export async function getAllPosts(req, res) {
     try {
@@ -28,6 +30,9 @@ export async function createPost(req, res) {
         if (!body.description || !body.poster) {
             throw new Error("new object has missing values");
         }
+        const { file } = req.files;
+        file.name = `${Date.now()}_${file.name}`
+        file.mv(path.join("./images", file.name));
         const allPosts = await getAll();
         if (allPosts.length !== 0) {
             const newId = allPosts[0].id + 1
@@ -36,6 +41,7 @@ export async function createPost(req, res) {
         else {
             body.id = 1;
         }
+        body.image = `http://localhost:3000/${file.name}`
         body.likes = 0;
         body.date = new Date().toLocaleString()
         insertOne(body)
@@ -48,12 +54,17 @@ export async function createPost(req, res) {
 export async function updateById(req, res) {
     try {
         const body = req.body;
+        const { file } = req.files;
         const id = +req.params.id;
         if (!id) throw new Error(`You must enter a realy ID number`)
         const allPosts = await getAll()
         const iToUpdate = allPosts.findIndex((post) => post.id === id)
         if (iToUpdate === -1) throw new Error(`Post With ID '${id}' Not Found`)
-        allPosts[iToUpdate].image = body.image || allPosts[iToUpdate].image;
+
+        file.name = `${Date.now()}_${file.name}`
+        file.mv(path.join("./images", file.name));
+
+        allPosts[iToUpdate].image = `http://localhost:3000/${file.name}`
         allPosts[iToUpdate].description = body.description || allPosts[iToUpdate].description
         allPosts[iToUpdate].poster = body.poster || allPosts[iToUpdate].poster
         await insertAll(allPosts);

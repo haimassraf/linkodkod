@@ -23,7 +23,7 @@ const Signup = () => {
         password
       }
       setLoadin(true)
-      const res = await makeRequest('/auth/signup', 'POST', body, true);
+      const res = await makeRequest('/auth/signup', 'POST', body);
       setLoadin(false)
       if (res.token) {
         navigate('/layout')
