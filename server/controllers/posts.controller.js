@@ -25,7 +25,7 @@ export async function getPostById(req, res) {
 export async function createPost(req, res) {
     try {
         const body = req.body;
-        if (!body.image || !body.description || !body.poster) {
+        if (!body.description || !body.poster) {
             throw new Error("new object has missing values");
         }
         const allPosts = await getAll();
@@ -36,9 +36,6 @@ export async function createPost(req, res) {
         else {
             body.id = 1;
         }
-        const imageName = body.image.split("\\");
-        const image = imageName[imageName.length - 1]
-        body.image = `http://localhost:3000/${image}`
         body.likes = 0;
         body.date = new Date().toLocaleString()
         insertOne(body)

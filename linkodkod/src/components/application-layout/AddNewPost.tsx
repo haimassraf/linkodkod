@@ -5,7 +5,7 @@ import makeRequest from "../../utils/makeRequest";
 const AddNewPost = () => {
     const [poster, setPoster] = useState<string>("");
     const [description, setDescription] = useState<string>("");
-    const [image, setImage] = useState<string>("");
+    const [file, setFile] = useState<string>("");
     const [message, setMessage] = useState<string>("");
     const [loading, setLoadin] = useState<boolean>(false)
 
@@ -17,7 +17,7 @@ const AddNewPost = () => {
             const body = {
                 poster,
                 description,
-                image
+                image: file
             }
             setLoadin(true)
             const res = await makeRequest('/posts', 'POST', body, true);
@@ -58,15 +58,13 @@ const AddNewPost = () => {
                     />
                 </label>
 
-                <label htmlFor="image">
+                <label htmlFor="file">
                     Image
                     <input
-                        id="image"
+                        id="file"
                         required
                         type="file"
-                        placeholder="image URL"
-                        value={image}
-                        onChange={(e) => setImage(e.target.value)}
+                        onChange={(e) => setFile(e.target.value)}
                     />
                 </label>
 
