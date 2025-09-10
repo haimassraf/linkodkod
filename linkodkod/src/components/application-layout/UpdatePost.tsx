@@ -47,18 +47,12 @@ const UpdatePost = () => {
 
         try {
             setLoading(true)
-            const res = await fetch(`http://localhost:3000/posts/${id}`, {
-                method: "PUT",
-                body: formData,
-                credentials: 'include'
-            })
-
-            const parsedResponse = await res.json()
+            const res = await makeRequest(`/posts/${id}`, 'PUT', formData, true)
             setLoading(false)
-            if (res.ok) {
+            if (res.id) {
                 navigate('/layout/posts')
             } else {
-                setMessage(parsedResponse);
+                setMessage(res);
             }
         } catch (err: any) {
             setMessage(err.message)

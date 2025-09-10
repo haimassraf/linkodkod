@@ -1,5 +1,6 @@
 import { useState, type FormEvent } from "react";
 import { useNavigate } from "react-router";
+import makeRequest from "../../utils/makeRequest";
 
 const AddNewPost = () => {
     const [poster, setPoster] = useState<string>("");
@@ -29,18 +30,13 @@ const AddNewPost = () => {
 
         try {
             setLoading(true)
-            const res = await fetch('http://localhost:3000/posts', {
-                method: "POST",
-                body: formData,
-                credentials: 'include'
-            })
-
-            const parsedResponse = await res.json()
+            const res = await makeRequest('/posts', 'POST', formData, true)
             setLoading(false)
-            if (res.ok) {
+
+            if (res.id) {
                 navigate('/layout/posts')
             } else {
-                setMessage(parsedResponse);
+                setMessage(res);
             }
         } catch (err: any) {
             setMessage(err.message)
