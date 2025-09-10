@@ -7,7 +7,7 @@ const Signup = () => {
   const [password, setPassword] = useState<string>("");
   const [matchPassword, setMatchPassword] = useState<string>("");
   const [message, setMessage] = useState<string>("");
-  const [loading, setLoadin] = useState<boolean>(false)
+  const [loading, setLoading] = useState<boolean>(false)
 
   const navigate = useNavigate();
 
@@ -22,10 +22,11 @@ const Signup = () => {
         name: name.toLowerCase(),
         password
       }
-      setLoadin(true)
+      setLoading(true)
       const res = await makeRequest('/auth/signup', 'POST', body);
-      setLoadin(false)
+      setLoading(false)
       if (res.token) {
+        localStorage.setItem("userName", name)
         navigate('/layout')
       } else {
         setMessage(res);
