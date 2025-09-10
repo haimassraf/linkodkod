@@ -18,8 +18,7 @@ const PostPage = () => {
             setMessage(res);
             return
         }
-        alert(`post with id '${res.id}' deleted succussfully`)
-        navigate('/index/posts')
+        navigate('/layout/posts')
     }
 
     async function updateById() {
