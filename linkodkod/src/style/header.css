@@ -10,6 +10,24 @@ header {
     height: 4rem;
 }
 
+.icons {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.userName {
+    border: 2px solid rgb(154, 147, 135);
+    border-radius: 12px;
+    background-color: rgb(228, 217, 200);
+    padding: 0.5rem;
+    color: rgb(202, 171, 134);
+    padding: 0.5rem;
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
 .buttons {
     display: flex;
     gap: 1rem;
@@ -20,10 +38,16 @@ header {
 }
 
 .logo img {
-    max-height: 5vh;
+    height: 3rem;
 }
 
 .slogan {
     font-size: 1rem;
     color: rgb(228, 217, 200);
+}
+
+@media screen and (max-width: 720px) {
+    .slogan, .logo {
+        display: none;
+    }
 }

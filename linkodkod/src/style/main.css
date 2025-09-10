@@ -35,12 +35,14 @@ h2 {
     justify-content: center;
     align-items: start;
     cursor: pointer;
+    max-height: 500px;
 }
 
 .postPage {
     align-items: center;
     cursor: auto;
     margin: 1rem;
+    max-height: none;
 }
 
 img {
@@ -52,6 +54,11 @@ img {
 
 .description {
     align-self: center;
+    overflow: hidden;
+}
+
+.postPage>.description {
+    overflow: visible;
 }
 
 .poster {
@@ -121,6 +128,11 @@ textarea {
 
 .logout:hover {
     color: brown;
+}
+
+input[type="file"] {
+    border: 2px solid rgb(94, 81, 66);
+    padding: 4px;
 }
 
 @media screen and (max-width: 720px) {

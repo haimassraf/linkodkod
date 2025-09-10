@@ -20,6 +20,7 @@ const Login = () => {
             const res = await makeRequest('/auth/login', 'POST', body);
             setLoading(false)
             if (res.token) {
+                localStorage.setItem("userName", name)
                 navigate("layout");
             } else {
                 setMessage(res);
