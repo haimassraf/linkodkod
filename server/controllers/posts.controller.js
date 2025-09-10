@@ -1,4 +1,6 @@
 import { getAll, insertOne, insertAll } from '../services/posts.service.js';
+import path from 'path'
+
 
 export async function getAllPosts(req, res) {
     try {
@@ -25,6 +27,9 @@ export async function getPostById(req, res) {
 export async function createPost(req, res) {
     try {
         const body = req.body;
+        const {file} = req.files;
+        file.name = `${Date.now()}_${file.name}`
+        file.mv(path.join("./images", file.name));
         if (!body.description || !body.poster) {
             throw new Error("new object has missing values");
         }
@@ -36,6 +41,7 @@ export async function createPost(req, res) {
         else {
             body.id = 1;
         }
+        body.image = `http://localhost:3000/${file.name}`
         body.likes = 0;
         body.date = new Date().toLocaleString()
         insertOne(body)

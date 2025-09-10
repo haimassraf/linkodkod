@@ -5,27 +5,44 @@ import makeRequest from "../../utils/makeRequest";
 const AddNewPost = () => {
     const [poster, setPoster] = useState<string>("");
     const [description, setDescription] = useState<string>("");
-    const [file, setFile] = useState<string>("");
+    const [file, setFile] = useState<File | undefined>();
     const [message, setMessage] = useState<string>("");
     const [loading, setLoadin] = useState<boolean>(false)
 
     const navigate = useNavigate();
 
+    function handleOnChange(e: React.FormEvent<HTMLInputElement>) {
+        const target = e.target as HTMLInputElement & {
+            files: FileList
+        }
+        setFile(target.files[0])
+    }
+
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+
+        if (typeof file === 'undefined') return;
+
+        const formData = new FormData();
+        formData.set('file', file)
+        formData.set('poster', poster)
+        formData.set('description', description)
+
         try {
-            const body = {
-                poster,
-                description,
-                image: file
-            }
             setLoadin(true)
-            const res = await makeRequest('/posts', 'POST', body, true);
+            // const res = await makeRequest('/posts', 'POST', formData, true);
+            const res = await fetch('http://localhost:3000/posts', {
+                method: "POST",
+                body: formData,
+                credentials: 'include'
+            })
+
+            const parsedResponse = await res.json()
             setLoadin(false)
-            if (res.id) {
+            if (res.ok) {
                 navigate('/layout/posts')
             } else {
-                setMessage(res);
+                setMessage(parsedResponse);
             }
         } catch (err: any) {
             setMessage(err.message)
@@ -62,9 +79,10 @@ const AddNewPost = () => {
                     Image
                     <input
                         id="file"
+                        accept="image/*"
                         required
                         type="file"
-                        onChange={(e) => setFile(e.target.value)}
+                        onChange={handleOnChange}
                     />
                 </label>
 
