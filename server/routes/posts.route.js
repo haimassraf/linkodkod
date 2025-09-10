@@ -5,11 +5,12 @@ import fileUpload from 'express-fileupload';
 
 const postsRouter = express.Router();
 
+postsRouter.use(authMiddleware)
 
-postsRouter.get('/:id', authMiddleware, getPostById)
-postsRouter.get('/', authMiddleware, getAllPosts)
-postsRouter.post('/', authMiddleware, fileUpload(), createPost)
-postsRouter.put('/:id', authMiddleware, fileUpload(), updateById)
-postsRouter.delete('/:id', authMiddleware, deleteById)
+postsRouter.get('/:id', getPostById)
+postsRouter.get('/', getAllPosts)
+postsRouter.post('/', fileUpload(), createPost)
+postsRouter.put('/:id', fileUpload(), updateById)
+postsRouter.delete('/:id', deleteById)
 
 export default postsRouter

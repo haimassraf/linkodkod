@@ -1,4 +1,4 @@
-import { useState, type FormEvent } from "react";
+import { useEffect, useState, type FormEvent } from "react";
 import { useNavigate } from "react-router";
 import makeRequest from "../../utils/makeRequest";
 
@@ -8,6 +8,7 @@ const AddNewPost = () => {
     const [file, setFile] = useState<File | undefined>();
     const [message, setMessage] = useState<string>("");
     const [loading, setLoading] = useState<boolean>(false)
+    const [name, setName] = useState<string>("")
 
     const navigate = useNavigate();
 
@@ -17,6 +18,11 @@ const AddNewPost = () => {
         }
         setFile(target.files[0])
     }
+
+    useEffect(() => {
+        const userName = localStorage.getItem("userName")
+        if (userName) setName(userName)
+    }, [])
 
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -52,9 +58,9 @@ const AddNewPost = () => {
                     <input
                         id="poster"
                         required
+                        defaultValue={name}
                         type="text"
                         placeholder="poster"
-                        value={poster}
                         onChange={(e) => setPoster(e.target.value)}
                     />
                 </label>
@@ -65,7 +71,6 @@ const AddNewPost = () => {
                         id="description"
                         required
                         placeholder="description"
-                        value={description}
                         onChange={(e) => setDescription(e.target.value)}
                     />
                 </label>
