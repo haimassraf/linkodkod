@@ -47,7 +47,9 @@ header {
 }
 
 @media screen and (max-width: 720px) {
-    .slogan, .logo {
+
+    .slogan,
+    .logo {
         display: none;
     }
 }

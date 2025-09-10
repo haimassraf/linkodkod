@@ -31,7 +31,7 @@ const Header = () => {
           <img src="src/assets/logo.jpeg" alt="" />
         </i>
       </section>
-      <p className="slogan">The First Kosher Instegram! <span><FaInstagram /></span></p>
+      <p className="slogan">The First Kosher Instagram! <span><FaInstagram /></span></p>
       <section className='buttons'>
         <Link className='btn' to={'posts'}>All posts</Link>
         <Link className='btn' to={'add-new-post'}>Add New Post</Link>

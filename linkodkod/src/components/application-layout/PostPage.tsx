@@ -38,6 +38,7 @@ const PostPage = () => {
         }
         fetchPost()
     }, [])
+
     return (
         <>
             <div className="postPage card">
