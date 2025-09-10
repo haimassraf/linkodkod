@@ -7,17 +7,24 @@ const UpdatePost = () => {
     const { id } = useParams<{ id: string }>();
     const [poster, setPoster] = useState<string>("");
     const [description, setDescription] = useState<string>("");
-    const [image, setImage] = useState<string>("");
+    const [file, setFile] = useState<File | undefined>();
     const [message, setMessage] = useState<string>("");
     const [loading, setLoading] = useState<boolean>(false)
     const [post, setPost] = useState<PostType>()
 
     const navigate = useNavigate();
 
+    function handleOnChange(e: FormEvent<HTMLInputElement>) {
+        const target = e.target as HTMLInputElement & {
+            files: FileList
+        }
+        setFile(target.files[0])
+    }
+
     useEffect(() => {
         async function fetchPost() {
             setLoading(true)
-            const res = await makeRequest(`/posts/${id}`, 'GET', null, true);
+            const res = await makeRequest(`/posts/${id}`, 'GET', null);
             setLoading(false)
             if (!res.id) {
                 setMessage(res)
@@ -30,22 +37,33 @@ const UpdatePost = () => {
 
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+
+        if (!file) return;
+
+        const formData = new FormData();
+        formData.set('file', file)
+        formData.set('poster', poster)
+        formData.set('description', description)
+
         try {
-            const body = {
-                poster,
-                description,
-                image
-            }
             setLoading(true)
-            const res = await makeRequest(`/posts/${id}`, 'PUT', body, true);
+            const res = await fetch(`http://localhost:3000/posts/${id}`, {
+                method: "PUT",
+                body: formData,
+                credentials: 'include'
+            })
+
+            const parsedResponse = await res.json()
             setLoading(false)
-            if (res.id) {
+            if (res.ok) {
                 navigate('/layout/posts')
             } else {
-                setMessage(res);
+                setMessage(parsedResponse);
             }
-        } catch (err: any) { setMessage(err.message) }
-    };
+        } catch (err: any) {
+            setMessage(err.message)
+        };
+    }
 
     return (
         <>
@@ -74,14 +92,14 @@ const UpdatePost = () => {
                     />
                 </label>
 
-                <label htmlFor="image">
+                <label htmlFor="file">
                     Image
                     <input
-                        id="image"
+                        required
+                        id="file"
+                        accept="image/*"
                         type="file"
-                        placeholder="image URL"
-                        value={image}
-                        onChange={(e) => setImage(e.target.value)}
+                        onChange={handleOnChange}
                     />
                 </label>
 

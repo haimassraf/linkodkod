@@ -1,17 +1,16 @@
 import { useState, type FormEvent } from "react";
 import { useNavigate } from "react-router";
-import makeRequest from "../../utils/makeRequest";
 
 const AddNewPost = () => {
     const [poster, setPoster] = useState<string>("");
     const [description, setDescription] = useState<string>("");
     const [file, setFile] = useState<File | undefined>();
     const [message, setMessage] = useState<string>("");
-    const [loading, setLoadin] = useState<boolean>(false)
+    const [loading, setLoading] = useState<boolean>(false)
 
     const navigate = useNavigate();
 
-    function handleOnChange(e: React.FormEvent<HTMLInputElement>) {
+    function handleOnChange(e: FormEvent<HTMLInputElement>) {
         const target = e.target as HTMLInputElement & {
             files: FileList
         }
@@ -21,7 +20,7 @@ const AddNewPost = () => {
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-        if (typeof file === 'undefined') return;
+        if (!file) return;
 
         const formData = new FormData();
         formData.set('file', file)
@@ -29,8 +28,7 @@ const AddNewPost = () => {
         formData.set('description', description)
 
         try {
-            setLoadin(true)
-            // const res = await makeRequest('/posts', 'POST', formData, true);
+            setLoading(true)
             const res = await fetch('http://localhost:3000/posts', {
                 method: "POST",
                 body: formData,
@@ -38,7 +36,7 @@ const AddNewPost = () => {
             })
 
             const parsedResponse = await res.json()
-            setLoadin(false)
+            setLoading(false)
             if (res.ok) {
                 navigate('/layout/posts')
             } else {
@@ -48,6 +46,7 @@ const AddNewPost = () => {
             setMessage(err.message)
         };
     }
+
     return (
         <>
             <h1>Add New Post</h1>

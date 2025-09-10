@@ -12,7 +12,7 @@ const PostPage = () => {
 
     async function deleteById() {
         setLoading(true)
-        const res = await makeRequest(`/posts/${id}`, 'DELETE', null, true);
+        const res = await makeRequest(`/posts/${id}`, 'DELETE', null);
         setLoading(false)
         if (!res.id) {
             setMessage(res);
@@ -28,7 +28,7 @@ const PostPage = () => {
     useEffect(() => {
         async function fetchPost() {
             setLoading(true)
-            const res = await makeRequest(`/posts/${id}`, 'GET', null, true);
+            const res = await makeRequest(`/posts/${id}`, 'GET', null);
             setLoading(false)
             if (!res.id) {
                 setMessage(res)

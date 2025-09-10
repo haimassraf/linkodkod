@@ -1,12 +1,12 @@
-export default async function makeRequest(url: string, method: string = 'GET', body: unknown = null, credentials: boolean = false) {
+export default async function makeRequest(url: string, method: string = 'GET', body: unknown = null) {
     try {
         const options: RequestInit = {
             method,
-            headers: { 'Content-Type': 'application/json' }
+            headers: { 'Content-Type': 'application/json' },
+            credentials: 'include'
         };
 
         if (body) options.body = JSON.stringify(body);
-        if (credentials) options.credentials = 'include';
 
         await new Promise(resolve => setTimeout(resolve, 500))
 
