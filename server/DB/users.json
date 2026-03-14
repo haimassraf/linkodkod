@@ -1,5 +1,14 @@
 [
     {
+        "name": "--- for testing ---",
+        "password": "--- for testing ---"
+    },
+    {
+        "name": "mor",
+        "password": "$2b$12$FyN/PjvHaEKyoNhPByJcjuZPgv4/3sDIpVwoV2hVYyooxT1nsOjl2",
+        "id": 10
+    },
+    {
         "name": "maor",
         "password": "$2b$12$W/1OLW/ZxRB5w8D4qgen0.DNZssd4dxRsAjByTGVfWXKoWvqmOnKi",
         "id": 9
